@@ -1,4 +1,5 @@
-# TODO: Write documentation for `Twitcr`
+require "./twitcr/**"
+
 module Twitcr
   VERSION = "0.1.0"
 
