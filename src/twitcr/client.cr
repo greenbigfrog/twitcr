@@ -1,7 +1,7 @@
 require "./rest"
 require "./mappings/*"
 
-module Twitcr::Client
+class Twitcr::Client
   include REST
 
   getter token : String
