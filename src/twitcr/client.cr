@@ -4,11 +4,12 @@ require "./mappings/*"
 class Twitcr::Client
   include REST
 
-  getter token : String
+  getter token : String?
   getter client_id : String
+  getter client_secret : String
 
-  def initialize(@token, @client_id)
-    @token = "Bearer" + @token
+  def initialize(@client_secret, @client_id)
+    @token = nil
   end
 
   def user?(name : String)
