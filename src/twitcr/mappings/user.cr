@@ -2,15 +2,19 @@ require "./converters"
 
 module Twitcr
   struct UserList
-    JSON.mapping({data: Array(User)})
+    include JSON::Serializable
+
+    property data : Array(User)
   end
 
   struct User
-    JSON.mapping({
-      id:           {type: UInt64, converter: ID::Converter},
-      login:        String,
-      display_name: String,
-    })
+    include JSON::Serializable
+
+    @[JSON::Field(converter: ID::Converter)]
+    property id : UInt64
+
+    property login : String
+    property display_name : String
   end
 end
 
